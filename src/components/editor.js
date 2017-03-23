@@ -9,11 +9,11 @@ import "codemirror/theme/monokai.css";
  * @returns {ReactCodeMidrror}  code mirror editor
  **/
 export default function render(props) {
-    const style = {
+    const options = {
         linenumber: true,
         mode: "markdown",
         theme: "monokai"
     };
 
-    return <ReactCodeMirror {...props} options={style} />;
+    return <ReactCodeMirror {...props} options={options} />;
 }

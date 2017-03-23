@@ -5,6 +5,7 @@ module.exports = {
     'react'
   ],
   env: {
+    browser: true,
     node: true,
     mocha: true
   },
