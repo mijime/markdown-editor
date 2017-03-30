@@ -1,53 +1,43 @@
 import React from "react";
-import ReactMarkdown from "react-markdown";
+import marked from "marked";
 import prism from "prismjs";
-import "prismjs/themes/prism-coy.css";
-import markdownStyles from "../styles/markdown.sass";
+import "prismjs/components/prism-java";
+import "prismjs/components/prism-json";
+import "prismjs/components/prism-go";
+import "prismjs/components/prism-bash";
+import "prismjs/components/prism-yaml";
+import "prismjs/components/prism-sql";
+import "prismjs/themes/prism.css";
 
-class CodeBlock extends React.Component {
-    render() {
-        const className = `language-${this.props.language}`;
-        const grammer = prism.languages[this.props.language];
+class CodeRenderer extends marked.Renderer {
+    code(literal, language) {
+        const grammer = prism.languages[language];
 
-        if (!grammer) {
-            return (
-              <pre>
-                <code className={className}>
-                  {this.props.literal}
-                </code>
-              </pre>
-            );
+        if (grammer) {
+            const className = `language-${language}`;
+
+            return `<pre className=${className}><code className=${className}>${
+                prism.highlight(
+                  literal,
+                  grammer,
+                  language
+                )
+            }</code></pre>`;
         }
 
-        const html = prism.highlight(
-            this.props.literal,
-            grammer,
-            this.props.language
-        );
-
-        return (
-          <pre className={className}>
-            <code className={className}
-              dangerouslySetInnerHTML={{ __html: html }} />
-          </pre>
-        );
+        return super.code(literal, language);
     }
 }
 
-CodeBlock.propTypes = {
-    literal: React.PropTypes.string,
-    language: React.PropTypes.string
-};
+const renderer = new CodeRenderer();
 
 /**
  * @param {string} source is markdown raw text
  * @returns {ReactMarkdown} react markdown component
  **/
-export default function render({ source }) {
-    return <ReactMarkdown
-        className={markdownStyles["markdown-body"]}
-        source={source}
-        renderers={
-            Object.assign(ReactMarkdown.renderers, { CodeBlock })
-        } />;
+export default function render({ className, source }) {
+    return <div className={className}
+        dangerouslySetInnerHTML={{
+            __html: marked(source, { renderer })
+        }} />;
 }

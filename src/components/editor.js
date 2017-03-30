@@ -1,19 +1,11 @@
 import React from "react";
-import ReactCodeMirror from "react-codemirror";
-import "codemirror/mode/markdown/markdown";
-import "codemirror/lib/codemirror.css";
-import "codemirror/theme/monokai.css";
+import styles from "../styles/editor.sass";
 
 /**
- * @param {Object} props react properties
- * @returns {ReactCodeMidrror}  code mirror editor
+ * @param {string} value react properties
+ * @param {event} onChange react properties
+ * @returns {React.Component} editor
  **/
-export default function render(props) {
-    const options = {
-        linenumber: true,
-        mode: "markdown",
-        theme: "monokai"
-    };
-
-    return <ReactCodeMirror {...props} options={options} />;
+export default function render({ value, onChange }) {
+    return <textarea className={styles.editor} onChange={onChange}>{value}</textarea>;
 }

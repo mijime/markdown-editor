@@ -6,12 +6,26 @@ import ActionTypes from "../types/action";
  * @param {hash} action action paramater
  * @returns {hash} store statement
  **/
-function rootReducer(state = {}, action) {
+function rootReducer(state, action) {
     switch (action.type) {
+        case ActionTypes.TOGGLE_COMPONENT:
+            if (!action.toggle.editor && !action.toggle.preview) {
+                return Object.assign({}, state, {
+                    toggle: {
+                        editor: true,
+                        preview: true
+                    }
+                });
+            }
+
+            return Object.assign({}, state, {
+                toggle: action.toggle
+            });
+
         case ActionTypes.CHANGE_TEXT:
-            return {
+            return Object.assign({}, state, {
                 code: action.code
-            };
+            });
 
         default:
             return state;
