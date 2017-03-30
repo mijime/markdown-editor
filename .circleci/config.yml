@@ -7,5 +7,4 @@ jobs:
     steps:
       - checkout
       - run: yarn install --force
-      - run: yarn test
-      - run: yarn run -- build
+      - run: yarn run -- deploy
