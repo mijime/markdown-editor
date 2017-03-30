@@ -9,7 +9,10 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "rehype-react": "^3.0.0",
+    "remark": "^7.0.0",
+    "remark-rehype": "^2.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
