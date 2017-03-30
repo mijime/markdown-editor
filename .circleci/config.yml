@@ -1,4 +1,9 @@
+---
 version: 2
+branches:
+  ignore:
+    - gh-pages
+
 jobs:
   build:
     working_directory: /var/app
@@ -7,4 +12,7 @@ jobs:
     steps:
       - checkout
       - run: yarn install --force
+      - run: git config --global user.email "circleci@circleci.com"
+      - run: git config --global user.name "circleci"
       - run: yarn run -- deploy
+...
