@@ -62,7 +62,7 @@ function renderApp({ code, toggle, actions }) {
         { toggle.editor ? <div className={[mg.column, styles.heighter].join(" ")}>
             <Editor value={code} onChange={actions.changeText} />
         </div> : null }
-        { toggle.preview ? <div className={mg.column}>
+        { toggle.preview ? <div className={[mg.column, styles.heighter].join(" ")}>
             <Preview source={code} />
         </div> : null }
     </div>;

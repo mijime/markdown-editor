@@ -38,8 +38,7 @@ module.exports = {
     resolve: {
         alias: {
             react: "preact-compat",
-            "react-dom": "preact-compat",
-            "react-helmet": "preact-helmet"
+            "react-dom": "preact-compat"
         }
     },
     plugins: [

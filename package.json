@@ -9,7 +9,11 @@
     "react": "^15.4.2",
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
-    "redux": "^3.6.0"
+    "redux": "^3.6.0",
+    "rehype-react": "^3.0.0",
+    "remark": "^7.0.0",
+    "remark-emoji": "^2.0.0",
+    "remark-rehype": "^2.0.0"
   },
   "devDependencies": {
     "babel-core": "^6.24.0",
@@ -51,8 +55,9 @@
     }
   },
   "scripts": {
-    "test": "jest --coverage",
-    "build": "eslint --fix src *.js && webpack -p",
+    "fix": "eslint --fix src *.js",
+    "test": "yarn run -- fix && jest --coverage",
+    "build": "yarn run -- test && webpack -p",
     "analyzer": "webpack --json | webpack-bundle-size-analyzer",
     "debug": "webpack-dev-server"
   },
