@@ -1,6 +1,5 @@
 const path = require("path");
 const HtmlPlugin = require("html-webpack-plugin");
-const HtmlInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
 
 module.exports = {
@@ -46,7 +45,6 @@ module.exports = {
         new HtmlPlugin({
             template: path.resolve(__dirname, "src/assets/index.html"),
             inlineSource: ".(js|css)$"
-        }),
-        new HtmlInlineSourcePlugin()
+        })
     ]
 };
