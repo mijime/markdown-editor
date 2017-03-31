@@ -11,6 +11,7 @@
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
+    "rehype-prism": "file:packages/rehype-prism",
     "rehype-react": "^3.0.0",
     "remark": "^7.0.0",
     "remark-emoji": "^2.0.0",
