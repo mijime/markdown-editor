@@ -40,7 +40,9 @@ module.exports = {
     resolve: {
         alias: {
             react: "preact-compat",
-            "react-dom": "preact-compat"
+            "react-dom": "preact-compat",
+            "milligram/src/milligram.sass": path.resolve(
+                __dirname, "src/styles/milligram.sass")
         }
     },
     plugins: [

@@ -1,5 +1,6 @@
 import React from "react";
 import { connect, Provider } from "react-redux";
+import ReactMg from "react-milligram";
 import ActionTypes from "../types/action";
 import Editor from "../components/editor";
 import Preview from "../components/preview";
@@ -52,50 +53,37 @@ function mapDispatchToProps(dispatch) {
 
 /**
  * @param {string} code react parameters
- * @param {hash} toggle react parameters
  * @param {hash} actions react parameters
  * @returns {React.Component} react component
  **/
-function renderApp({ code, toggle, actions }) {
-    const content = <div className={[styles.row].join(" ")}>
-        { toggle.editor ? <div className={[styles.column, styles.screen].join(" ")}>
-            <Editor value={code} onChange={actions.changeText} />
-        </div> : null }
-        { toggle.preview ? <div className={[styles.column, styles.screen].join(" ")}>
-            <Preview source={code} />
-        </div> : null }
-    </div>;
+function renderApp({ code, actions }) {
+    const content = <ReactMg.Container>
+        <ReactMg.Row>
+            <ReactMg.Column>
+                <Editor value={code} onChange={actions.changeText} />
+            </ReactMg.Column>
+            <ReactMg.Column>
+                <Preview source={code} />
+            </ReactMg.Column>
+         </ReactMg.Row>
+    </ReactMg.Container>;
 
-    const menu = <ul className={styles.row}>
-        <li className={styles.column}>
-            <button className={[
-                styles.button,
-                toggle.editor
-                    ? "" : styles["button-outline"]
-            ].join(" ")} onClick={
-                actions.toggleEditor(toggle)
-            }> Edit </button>
-        </li>
-        <li className={styles.column}>
-            <button className={[
-                styles.button,
-                toggle.preview
-                    ? "" : styles["button-outline"]
-            ].join(" ")} onClick={
-                actions.togglePreview(toggle)
-            }> Show </button>
-        </li>
-    </ul>;
+    const menu = <ReactMg.Container>
+        <ReactMg.Row>
+            <ReactMg.Column>
+                <ReactMg.Button design={ReactMg.ButtonDesigns.CLEAR}> Edit </ReactMg.Button>
+            </ReactMg.Column>
+            <ReactMg.Column>
+                <ReactMg.Button> Show </ReactMg.Button>
+            </ReactMg.Column>
+         </ReactMg.Row>
+    </ReactMg.Container>;
 
     return <div className={styles.app}>
-        <div className={[styles.container].join(" ")}>
             {content}
-        </div>
-        <div className={styles.navigation}>
-            <nav className={styles.container}>
+            <div className={styles.navigation}>
                 {menu}
-            </nav>
-        </div>
+            </div>
         <input type="hidden" id="code" value={code} />
     </div>;
 }
