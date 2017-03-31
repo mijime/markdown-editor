@@ -1,9 +1,9 @@
 ---
 version: 2
+branches:
+  only:
+    - master
 jobs:
-  branches:
-    only:
-      - master
   build:
     working_directory: /var/app
     docker:
