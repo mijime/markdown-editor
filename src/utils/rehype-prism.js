@@ -34,7 +34,7 @@ export default function plugin() {
         }
 
         const grammer = Array.from(tree.properties.className)
-              .filter(name => name.match(/^language-/))
+              .filter(name => name.match(/^language-[\w]+/))
               .map(name => name.split("-")[1])
               .map(lang => prism.languages[lang])
               .reduce((acc, curr) => {
