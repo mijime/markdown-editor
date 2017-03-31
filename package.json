@@ -26,6 +26,7 @@
     "eslint": "^3.18.0",
     "eslint-config-eslint": "^4.0.0",
     "eslint-loader": "^1.6.3",
+    "eslint-plugin-jest": "^19.0.1",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
     "extract-text-webpack-plugin": "^2.1.0",
