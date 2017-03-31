@@ -3,7 +3,7 @@ import remark from "remark";
 import emoji4remark from "remark-emoji";
 import remark2rehype from "remark-rehype";
 import rehype2react from "rehype-react";
-import prism4rehype from "../utils/rehype-prism";
+import prism4rehype from "rehype-prism";
 import "prismjs/components/prism-java";
 import "prismjs/components/prism-json";
 import "prismjs/components/prism-go";

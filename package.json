@@ -11,6 +11,7 @@
     "react-dom": "^15.4.2",
     "react-redux": "^5.0.3",
     "redux": "^3.6.0",
+    "rehype-prism": "file:packages/rehype-prism",
     "rehype-react": "^3.0.0",
     "remark": "^7.0.0",
     "remark-emoji": "^2.0.0",
@@ -26,6 +27,7 @@
     "eslint": "^3.18.0",
     "eslint-config-eslint": "^4.0.0",
     "eslint-loader": "^1.6.3",
+    "eslint-plugin-jest": "^19.0.1",
     "eslint-plugin-jsx-a11y": "^4.0.0",
     "eslint-plugin-react": "^6.10.0",
     "extract-text-webpack-plugin": "^2.1.0",
@@ -57,7 +59,7 @@
     }
   },
   "scripts": {
-    "fix": "eslint --fix src webpackfile*",
+    "fix": "eslint --fix .",
     "test": "yarn run -- fix && jest --coverage",
     "build": "yarn run -- test && webpack --config webpackfile/prod.js",
     "deploy": "yarn run -- build && gh-pages -d build/Release",

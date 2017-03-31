@@ -1,9 +1,8 @@
 ---
 version: 2
 branches:
-  ignore:
-    - gh-pages
-
+  only:
+    - master
 jobs:
   build:
     working_directory: /var/app
@@ -14,5 +13,7 @@ jobs:
       - run: yarn install --force
       - run: git config --global user.email "circleci@circleci.com"
       - run: git config --global user.name "circleci"
+      - run: mkdir -p build/Release
+      - run: cp -rv .circleci build/Release
       - run: yarn run -- deploy
 ...
