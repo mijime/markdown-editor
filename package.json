@@ -59,7 +59,7 @@
     }
   },
   "scripts": {
-    "fix": "eslint --fix src webpackfile*",
+    "fix": "eslint --fix .",
     "test": "yarn run -- fix && jest --coverage",
     "build": "yarn run -- test && webpack --config webpackfile/prod.js",
     "deploy": "yarn run -- build && gh-pages -d build/Release",
