@@ -3,8 +3,7 @@ import { connect, Provider } from "react-redux";
 import ActionTypes from "../types/action";
 import Editor from "../components/editor";
 import Preview from "../components/preview";
-import styles from "../styles/style.sass";
-import mg from "milligram/src/milligram.sass";
+import styles from "../styles/base.sass";
 
 /**
  * @param {string} code input code
@@ -58,30 +57,30 @@ function mapDispatchToProps(dispatch) {
  * @returns {React.Component} react component
  **/
 function renderApp({ code, toggle, actions }) {
-    const content = <div className={[mg.row, styles.heighter].join(" ")}>
-        { toggle.editor ? <div className={[mg.column, styles.heighter].join(" ")}>
+    const content = <div className={[styles.row].join(" ")}>
+        { toggle.editor ? <div className={[styles.column, styles.screen].join(" ")}>
             <Editor value={code} onChange={actions.changeText} />
         </div> : null }
-        { toggle.preview ? <div className={[mg.column, styles.heighter].join(" ")}>
+        { toggle.preview ? <div className={[styles.column, styles.screen].join(" ")}>
             <Preview source={code} />
         </div> : null }
     </div>;
 
-    const menu = <ul className={mg.row}>
-        <li className={mg.column}>
+    const menu = <ul className={styles.row}>
+        <li className={styles.column}>
             <button className={[
-                mg.button,
+                styles.button,
                 toggle.editor
-                    ? "" : mg["button-outline"]
+                    ? "" : styles["button-outline"]
             ].join(" ")} onClick={
                 actions.toggleEditor(toggle)
             }> Edit </button>
         </li>
-        <li className={mg.column}>
+        <li className={styles.column}>
             <button className={[
-                mg.button,
+                styles.button,
                 toggle.preview
-                    ? "" : mg["button-outline"]
+                    ? "" : styles["button-outline"]
             ].join(" ")} onClick={
                 actions.togglePreview(toggle)
             }> Show </button>
@@ -89,11 +88,11 @@ function renderApp({ code, toggle, actions }) {
     </ul>;
 
     return <div className={styles.app}>
-        <div className={[mg.container, styles.heighter].join(" ")}>
+        <div className={[styles.container].join(" ")}>
             {content}
         </div>
         <div className={styles.navigation}>
-            <nav className={mg.container}>
+            <nav className={styles.container}>
                 {menu}
             </nav>
         </div>
