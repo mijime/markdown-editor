@@ -5,6 +5,7 @@ const ReactCoreTypes = {
     BUTTOUTLINE: "button"
 };
 const ReactCoreProps = [
+    "id",
     "width",
     "height",
     "style",
