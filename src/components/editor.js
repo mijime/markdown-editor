@@ -1,5 +1,5 @@
 import React from "react";
-import styles from "../styles/editor.sass";
+import styles from "../styles/main.sass";
 
 /**
  * @param {string} value react properties
