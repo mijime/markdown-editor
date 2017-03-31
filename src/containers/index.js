@@ -60,7 +60,7 @@ function renderApp({ code, actions }) {
     const content = <ReactMg.Container>
         <ReactMg.Row>
             <ReactMg.Column>
-                <Editor value={code} onChange={actions.changeText} />
+                <Editor id={"code"} value={code} onChange={actions.changeText} />
             </ReactMg.Column>
             <ReactMg.Column>
                 <Preview source={code} />
@@ -80,11 +80,10 @@ function renderApp({ code, actions }) {
     </ReactMg.Container>;
 
     return <div className={styles.app}>
-            {content}
-            <div className={styles.navigation}>
-                {menu}
-            </div>
-        <input type="hidden" id="code" value={code} />
+        {content}
+        <div className={styles.navigation}>
+            {menu}
+        </div>
     </div>;
 }
 
