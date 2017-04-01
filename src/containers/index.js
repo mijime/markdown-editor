@@ -1,17 +1,18 @@
 import React from "react";
 import { connect, Provider } from "react-redux";
 import ReactMg from "react-milligram";
-import ActionTypes from "../types/action";
 import Editor from "../components/editor";
-import Preview from "../components/preview";
+import Menu from "../components/menu";
+import updateCodeHandler from "../actions/updateCode";
 import styles from "../styles/main.sass";
 
 /**
- * @param {string} code input code
- * @returns {hash} state
+ * @param {string} code is input code
+ * @param {React.Element} preview is markdown preview
+ * @returns {Redux.State} redux state
  **/
-function mapStateToProps({ code, toggle }) {
-    return { code, toggle };
+function mapStateToProps({ code, preview }) {
+    return { code, preview };
 }
 
 /**
@@ -19,71 +20,52 @@ function mapStateToProps({ code, toggle }) {
  * @returns {hash} actions
  **/
 function mapDispatchToProps(dispatch) {
-    return { actions: {
-        toggleEditor(toggle) {
-            return function() {
-                return dispatch({
-                    type: ActionTypes.TOGGLE_COMPONENT,
-                    toggle: {
-                        editor: !toggle.editor,
-                        preview: toggle.preview
-                    }
-                });
-            };
-        },
-        togglePreview(toggle) {
-            return function() {
-                return dispatch({
-                    type: ActionTypes.TOGGLE_COMPONENT,
-                    toggle: {
-                        editor: toggle.editor,
-                        preview: !toggle.preview
-                    }
-                });
-            };
-        },
-        changeText({ target }) {
-            return dispatch({
-                type: ActionTypes.CHANGE_TEXT,
-                code: target.value
-            });
-        }
-    } };
+    const actions = updateCodeHandler(dispatch);
+
+    return { actions };
 }
 
 /**
- * @param {string} code react parameters
+ * @param {string} code is input code
+ * @param {React.Element} preview is markdown preview
  * @param {hash} actions react parameters
- * @returns {React.Component} react component
+ * @returns {React.Component} react components
  **/
-function renderApp({ code, actions }) {
-    const content = <ReactMg.Container>
-        <ReactMg.Row>
+function MainPanel({ code, preview, actions }) {
+    return <ReactMg.Container>
+            <ReactMg.Row>
+                <ReactMg.Column>
+                    <Editor id={"code"}
+                        value={code}
+                        onChange={actions.updateCode} />
+                </ReactMg.Column>
             <ReactMg.Column>
-                <Editor id={"code"} value={code} onChange={actions.changeText} />
+                {preview}
             </ReactMg.Column>
-            <ReactMg.Column>
-                <Preview source={code} />
-            </ReactMg.Column>
-         </ReactMg.Row>
+        </ReactMg.Row>
     </ReactMg.Container>;
+}
 
-    const menu = <ReactMg.Container>
-        <ReactMg.Row>
-            <ReactMg.Column>
-                <ReactMg.Button design={ReactMg.ButtonDesigns.CLEAR}> Edit </ReactMg.Button>
-            </ReactMg.Column>
-            <ReactMg.Column>
-                <ReactMg.Button> Show </ReactMg.Button>
-            </ReactMg.Column>
-         </ReactMg.Row>
-    </ReactMg.Container>;
+/**
+ * @param {React.Element} children is react parameters
+ * @returns {React.Component} react components
+ **/
+function Navigator({ children }) {
+    return <nav className={styles.navigation}>
+        {children}
+    </nav>;
+}
 
+/**
+ * @param {React.Props} props is react parameters
+ * @returns {React.Component} react components
+ **/
+function renderApp(props) {
     return <div className={styles.app}>
-        {content}
-        <div className={styles.navigation}>
-            {menu}
-        </div>
+        <MainPanel {...props} />
+        <Navigator>
+            <Menu {...props} />
+        </Navigator>
     </div>;
 }
 
