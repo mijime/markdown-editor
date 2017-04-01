@@ -3,6 +3,7 @@ const mg = require("milligram/src/milligram.sass");
 const {
     ReactCoreTypes,
     mapToCoreProps,
+    appendMgClassNames,
     ButtonDesigns
 } = require("../helpers");
 const BUTTOUTLINE_OUTLINE = "button-outline";
@@ -18,13 +19,15 @@ function Button(props) {
     return React.createElement(
         ReactCoreTypes.BUTTOUTLINE,
         Object.assign({
-            className: [
-                mg.button,
-                design === ButtonDesigns.OUTLINE
+            className: appendMgClassNames(
+                props, [
+                    mg.button,
+                    design === ButtonDesigns.OUTLINE
                     ? mg[BUTTOUTLINE_OUTLINE] : "",
-                design === ButtonDesigns.CLEAR
+                    design === ButtonDesigns.CLEAR
                     ? mg[BUTTOUTLINE_CLEAR] : ""
-            ].join(" ")
+                ]
+            )
         }, mapToCoreProps(props)),
         props.children);
 }

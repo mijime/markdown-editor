@@ -2,7 +2,8 @@ const React = require("react");
 const mg = require("milligram/src/milligram.sass");
 const {
     ReactCoreTypes,
-    mapToCoreProps
+    mapToCoreProps,
+    appendMgClassNames
 } = require("../helpers");
 
 /**
@@ -13,7 +14,9 @@ function Row(props) {
     return React.createElement(
         ReactCoreTypes.UL,
         Object.assign({
-            className: mg.row
+            className: appendMgClassNames(
+                props, [mg.row]
+            )
         }, mapToCoreProps(props)),
         props.children);
 }

@@ -2,7 +2,8 @@ const React = require("react");
 const mg = require("milligram/src/milligram.sass");
 const {
     ReactCoreTypes,
-    mapToCoreProps
+    mapToCoreProps,
+    appendMgClassNames
 } = require("../helpers");
 
 /**
@@ -15,11 +16,13 @@ function Column(props) {
     return React.createElement(
         ReactCoreTypes.LI,
         Object.assign({
-            className: [
-                mg.column,
-                ratio ? mg[`column-${ratio}`] : "",
-                offset ? mg[`column-offset-${ratio}`] : ""
-            ].join(" ")
+            className: appendMgClassNames(
+                props, [
+                    mg.column,
+                    ratio ? mg[`column-${ratio}`] : "",
+                    offset ? mg[`column-offset-${ratio}`] : ""
+                ]
+            )
         }, mapToCoreProps(props)),
         props.children);
 }
