@@ -1,10 +1,10 @@
 ---
 version: 2
-branches:
-  only:
-    - master
 jobs:
   build:
+    branches:
+      only:
+        - master
     working_directory: /var/app
     docker:
       - image: node:latest
