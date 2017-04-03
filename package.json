@@ -11,6 +11,7 @@
     "react-dom": "^15.4.2",
     "react-milligram": "file:packages/react-milligram",
     "react-redux": "^5.0.3",
+    "react-themify-icons": "file:packages/react-themify-icons",
     "redux": "^3.6.0",
     "rehype-prism": "file:packages/rehype-prism",
     "rehype-react": "^3.0.0",
