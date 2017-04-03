@@ -33,12 +33,12 @@ function mapDispatchToProps(dispatch) {
  **/
 function MainPanel({ code, preview, actions }) {
     return <ReactMg.Container>
-            <ReactMg.Row>
-                <ReactMg.Column>
-                    <Editor id={"code"}
-                        value={code}
-                        onChange={actions.updateCode} />
-                </ReactMg.Column>
+        <ReactMg.Row>
+            <ReactMg.Column>
+                <Editor id={"code"}
+                    value={code}
+                    onChange={actions.updateCode} />
+            </ReactMg.Column>
             <ReactMg.Column>
                 {preview}
             </ReactMg.Column>
