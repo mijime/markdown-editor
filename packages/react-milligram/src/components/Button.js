@@ -6,8 +6,8 @@ const {
     appendMgClassNames,
     ButtonDesigns
 } = require("../helpers");
-const BUTTOUTLINE_OUTLINE = "button-outline";
-const BUTTOUTLINE_CLEAR = "button-clear";
+const BUTTON_OUTLINE = "button-outline";
+const BUTTON_CLEAR = "button-clear";
 
 /**
  * @param {React.Props} props is react properties
@@ -17,15 +17,15 @@ function Button(props) {
     const { design } = props;
 
     return React.createElement(
-        ReactCoreTypes.BUTTOUTLINE,
+        ReactCoreTypes.BUTTON,
         Object.assign({
             className: appendMgClassNames(
                 props, [
                     mg.button,
                     design === ButtonDesigns.OUTLINE
-                    ? mg[BUTTOUTLINE_OUTLINE] : "",
+                    ? mg[BUTTON_OUTLINE] : "",
                     design === ButtonDesigns.CLEAR
-                    ? mg[BUTTOUTLINE_CLEAR] : ""
+                    ? mg[BUTTON_CLEAR] : ""
                 ]
             )
         }, mapToCoreProps(props)),

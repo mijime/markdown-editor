@@ -4,7 +4,7 @@ const ReactCoreTypes = {
     DIV: "div",
     UL: "ul",
     LI: "li",
-    BUTTOUTLINE: "button"
+    BUTTON: "button"
 };
 const ButtonDesigns = {
     OUTLINE: "outline",
