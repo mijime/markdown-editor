@@ -862,11 +862,13 @@ img {
   overflow: auto; }
 
 .l68fwcgDTNOJpPwmTJCnM {
-  transition: .5s;
+  transition: 0.5s;
   position: fixed;
-  bottom: -1rem; }
+  bottom: -5rem; }
   .l68fwcgDTNOJpPwmTJCnM:hover {
-    bottom: 0; }
+    bottom: 0rem; }
+  .l68fwcgDTNOJpPwmTJCnM button {
+    transition: 0.5s; }
 
 ._1RY2E0wiImdRA1Wek5YtYW {
   color: #606c76;
@@ -874,6 +876,9 @@ img {
   max-height: 85vh;
   overflow: auto;
   margin-bottom: 0; }
+
+li > p:first-child {
+  display: initial; }
 @charset "UTF-8";
 ._3mjdGjH-4b4WKeqc92Er08 {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, "Arial", "Yu Gothic", YuGothic, "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "Hiragino Kaku Gothic ProN", "\30E1\30A4\30EA\30AA", Meiryo, sans-serif;
@@ -885,11 +890,13 @@ img {
   overflow: auto; }
 
 ._39zFpwr2ysgzI62eHUUr1c {
-  transition: .5s;
+  transition: 0.5s;
   position: fixed;
-  bottom: -1rem; }
+  bottom: -5rem; }
   ._39zFpwr2ysgzI62eHUUr1c:hover {
-    bottom: 0; }
+    bottom: 0rem; }
+  ._39zFpwr2ysgzI62eHUUr1c button {
+    transition: 0.5s; }
 
 ._1-u5u2aXrjNWkIRx2agjpJ {
   color: #606c76;
