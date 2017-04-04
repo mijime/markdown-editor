@@ -34,6 +34,12 @@ module.exports = {
         }, {
             test: /\.js$/,
             use: ["babel-loader"]
+        }, {
+            test: /\.svg$/,
+            use: [
+                "babel-loader",
+                "svg-react-loader"
+            ]
         }]
     },
     resolve: {

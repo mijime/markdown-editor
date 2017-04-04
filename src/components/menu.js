@@ -1,7 +1,7 @@
 import React from "react";
 import ReactMg from "react-milligram";
-import Pencil from "react-themify-icons/src/components/Pencil"
-import Eye from "react-themify-icons/src/components/Eye"
+import Edit from "bytesize-icons/dist/icons/edit.svg";
+import Eye from "bytesize-icons/dist/icons/eye.svg";
 import styles from "../styles/main.sass";
 
 /**
@@ -13,7 +13,7 @@ export default function Menu() {
         <ReactMg.Row>
             <ReactMg.Column>
                 <ReactMg.Button design={ReactMg.ButtonDesigns.OUTLINE}>
-                        <Pencil className={styles.icon} />
+                        <Edit className={styles.icon} />
                 </ReactMg.Button>
             </ReactMg.Column>
             <ReactMg.Column>
