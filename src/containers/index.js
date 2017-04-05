@@ -20,7 +20,7 @@ function mapStateToProps({ code, preview }) {
  * @param {Function} dispatch dispatcher function
  * @returns {any} actions
  **/
-function mapDispatchToProps(dispatch: Function) {
+function mapDispatchToProps(dispatch/* :Function*/) {
     const actions = updateCodeHandler(dispatch);
 
     return { actions };
@@ -61,7 +61,7 @@ function Navigator({ children }) {
  * @param {any} props is react parameters
  * @returns {React.Element<any>} react components
  **/
-function renderApp(props: any) {
+function renderApp(props/* :any*/) {
     return <div className={styles.app}>
         <MainPanel {...props} />
         <Navigator>
@@ -79,7 +79,7 @@ const App = connect(
  * @param {any} props store parameter
  * @returns {React.Element<any>} return react component
  **/
-export function Index(props: any) {
+export function Index(props/* :any*/) {
     return <Provider store={props.store}>
         <App />
     </Provider>;

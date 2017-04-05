@@ -8,7 +8,7 @@ import EyeIcon from "bytesize-icons/dist/icons/eye.svg";
  * @param {any} props is react properties
  * @returns {any} react components
  **/
-export function Menu(props: any) : any {
+export function Menu(props/* :any*/) {
     return <ReactMg.Container>
         <ReactMg.Row>
             <ReactMg.Column>

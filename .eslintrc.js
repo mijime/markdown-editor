@@ -1,11 +1,9 @@
 module.exports = {
-   "parser": "babel-eslint",
     extends: "eslint",
     plugins: [
         "jest",
         "jsx-a11y",
-        "react",
-        "flowtype"
+        "react"
     ],
     env: {
         browser: true,
@@ -43,7 +41,5 @@ module.exports = {
         "jsx-a11y/img-has-alt": "error",
         "jsx-a11y/img-redundant-alt": "error",
         "jsx-a11y/no-access-key": "error",
-
-        "flowtype/define-flow-type": "error"
     }
 };

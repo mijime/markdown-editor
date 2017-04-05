@@ -6,9 +6,9 @@ import PreviewProcessor from "../libs/processor";
  * @param {Function} dispatch dispatcher function
  * @returns {any} actions
  **/
-export function updateCodeHandler(dispatch: Function) {
+export function updateCodeHandler(dispatch/* :Function*/) {
     return {
-        updateCode(code: string) {
+        updateCode(code/* :string*/) {
             dispatch({
                 type: ActionTypes.UPDATE_CODE,
                 code

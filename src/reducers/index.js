@@ -6,7 +6,7 @@ import ActionTypes from "../types/actions";
  * @param {any} action action paramater
  * @returns {any} store statement
  **/
-export function rootReducer(state: any, action: any) : any {
+export function rootReducer(state/* :any*/, action/* :any*/) {
     switch (action.type) {
         case ActionTypes.UPDATE_PREVIEW:
             return Object.assign({}, state, {
