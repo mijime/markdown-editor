@@ -1,3 +1,5 @@
+// @flow
+
 import React from "react";
 import remark from "remark";
 import emoji4remark from "remark-emoji";
@@ -12,7 +14,7 @@ import "prismjs/components/prism-yaml";
 import "prismjs/components/prism-sql";
 import "prismjs/themes/prism.css";
 
-const processor = remark()
+const Processor = remark()
     .use(emoji4remark)
     .use(remark2rehype)
     .use(prism4rehype)
@@ -20,4 +22,4 @@ const processor = remark()
         createElement: React.createElement
     });
 
-export default processor;
+export default Processor;

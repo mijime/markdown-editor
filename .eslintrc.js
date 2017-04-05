@@ -1,9 +1,11 @@
 module.exports = {
+   "parser": "babel-eslint",
     extends: "eslint",
     plugins: [
         "jest",
         "jsx-a11y",
-        "react"
+        "react",
+        "flowtype"
     ],
     env: {
         browser: true,
@@ -20,7 +22,7 @@ module.exports = {
     rules: {
         "no-console": "off",
 
-    // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
+        // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
         "react/jsx-equals-spacing": ["error", "never"],
         "react/jsx-no-duplicate-props": ["error", { ignoreCase: true }],
         "react/jsx-no-undef": "error",
@@ -36,10 +38,12 @@ module.exports = {
         "react/react-in-jsx-scope": "error",
         "react/require-render-return": "error",
 
-    // https://github.com/evcohen/eslint-plugin-jsx-a11y/tree/master/docs/rules
+        // https://github.com/evcohen/eslint-plugin-jsx-a11y/tree/master/docs/rules
         "jsx-a11y/aria-role": "error",
         "jsx-a11y/img-has-alt": "error",
         "jsx-a11y/img-redundant-alt": "error",
-        "jsx-a11y/no-access-key": "error"
+        "jsx-a11y/no-access-key": "error",
+
+        "flowtype/define-flow-type": "error"
     }
 };

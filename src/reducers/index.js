@@ -1,11 +1,12 @@
+// @flow
 import ActionTypes from "../types/actions";
 
 /**
- * @param {Redux.State} state store statement
- * @param {hash} action action paramater
- * @returns {Redux.State} store statement
+ * @param {any} state store statement
+ * @param {any} action action paramater
+ * @returns {any} store statement
  **/
-export default function rootReducer(state, action) {
+export function rootReducer(state: any, action: any) : any {
     switch (action.type) {
         case ActionTypes.UPDATE_PREVIEW:
             return Object.assign({}, state, {

@@ -1,15 +1,16 @@
+// @flow
 import React from "react";
 import { connect, Provider } from "react-redux";
 import ReactMg from "react-milligram";
-import Editor from "../components/editor";
-import Menu from "../components/menu";
-import updateCodeHandler from "../actions/updateCode";
+import { Editor } from "../components/editor";
+import { Menu } from "../components/menu";
+import { updateCodeHandler } from "../actions/updateCode";
 import styles from "../styles/main.sass";
 
 /**
  * @param {string} code is input code
- * @param {React.Element} preview is markdown preview
- * @returns {Redux.State} redux state
+ * @param {any} preview is markdown preview
+ * @returns {any} redux state
  **/
 function mapStateToProps({ code, preview }) {
     return { code, preview };
@@ -17,9 +18,9 @@ function mapStateToProps({ code, preview }) {
 
 /**
  * @param {Function} dispatch dispatcher function
- * @returns {hash} actions
+ * @returns {any} actions
  **/
-function mapDispatchToProps(dispatch) {
+function mapDispatchToProps(dispatch: Function) {
     const actions = updateCodeHandler(dispatch);
 
     return { actions };
@@ -27,9 +28,9 @@ function mapDispatchToProps(dispatch) {
 
 /**
  * @param {string} code is input code
- * @param {React.Element} preview is markdown preview
- * @param {hash} actions react parameters
- * @returns {React.Component} react components
+ * @param {React.Element<any>} preview is markdown preview
+ * @param {any} actions react parameters
+ * @returns {React.Element<any>} react components
  **/
 function MainPanel({ code, preview, actions }) {
     return <ReactMg.Container>
@@ -37,7 +38,7 @@ function MainPanel({ code, preview, actions }) {
             <ReactMg.Column>
                 <Editor id={"code"}
                     value={code}
-                    onChange={actions.updateCode} />
+                    onUpdateValue={actions.updateCode} />
             </ReactMg.Column>
             <ReactMg.Column>
                 {preview}
@@ -47,8 +48,8 @@ function MainPanel({ code, preview, actions }) {
 }
 
 /**
- * @param {React.Element} children is react parameters
- * @returns {React.Component} react components
+ * @param {any} children is react parameters
+ * @returns {React.Element<any>} react components
  **/
 function Navigator({ children }) {
     return <nav className={styles.navigation}>
@@ -57,10 +58,10 @@ function Navigator({ children }) {
 }
 
 /**
- * @param {React.Props} props is react parameters
- * @returns {React.Component} react components
+ * @param {any} props is react parameters
+ * @returns {React.Element<any>} react components
  **/
-function renderApp(props) {
+function renderApp(props: any) {
     return <div className={styles.app}>
         <MainPanel {...props} />
         <Navigator>
@@ -75,11 +76,11 @@ const App = connect(
 )(renderApp);
 
 /**
- * @param {Redux.store} store store parameter
- * @returns {React.Component} return react component
+ * @param {any} props store parameter
+ * @returns {React.Element<any>} return react component
  **/
-export default function render({ store }) {
-    return <Provider store={store}>
+export function Index(props: any) {
+    return <Provider store={props.store}>
         <App />
     </Provider>;
 }

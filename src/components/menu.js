@@ -1,24 +1,28 @@
+// @flow
 import React from "react";
 import ReactMg from "react-milligram";
-import Edit from "bytesize-icons/dist/icons/edit.svg";
-import Eye from "bytesize-icons/dist/icons/eye.svg";
-import styles from "../styles/main.sass";
+import EditIcon from "bytesize-icons/dist/icons/edit.svg";
+import EyeIcon from "bytesize-icons/dist/icons/eye.svg";
 
 /**
- * @param {React.Props} props is react properties
- * @returns {React.Component} react components
+ * @param {any} props is react properties
+ * @returns {any} react components
  **/
-export default function Menu() {
+export function Menu(props: any) : any {
     return <ReactMg.Container>
         <ReactMg.Row>
             <ReactMg.Column>
-                <ReactMg.Button design={ReactMg.ButtonDesigns.OUTLINE}>
-                        <Edit className={styles.icon} />
+                <ReactMg.Button
+                    onClick={props.actions.toggleEditor}
+                    design={ReactMg.ButtonDesigns.OUTLINE}>
+                    <EditIcon />
                 </ReactMg.Button>
             </ReactMg.Column>
             <ReactMg.Column>
-                <ReactMg.Button>
-                        <Eye className={styles.icon} />
+                <ReactMg.Button
+                    onClick={props.actions.togglePreview}
+                    design={ReactMg.ButtonDesigns.OUTLINE}>
+                    <EyeIcon />
                 </ReactMg.Button>
             </ReactMg.Column>
         </ReactMg.Row>

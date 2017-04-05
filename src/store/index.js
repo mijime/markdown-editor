@@ -1,10 +1,11 @@
+// @flow
 import { createStore } from "redux";
-import rootReducer from "../reducers";
+import { rootReducer } from "../reducers";
 
 /**
- * @param {hash} initialState inital state
- * @returns {Redux.store} return redux store
+ * @param {any} initialState inital state
+ * @returns {any} return redux store
  **/
-export default function configureStore(initialState) {
+export function configureStore(initialState: any) : any {
     return createStore(rootReducer, initialState);
 }

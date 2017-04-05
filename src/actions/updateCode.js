@@ -1,15 +1,14 @@
+// @flow
 import ActionTypes from "../types/actions";
 import PreviewProcessor from "../libs/processor";
 
 /**
  * @param {Function} dispatch dispatcher function
- * @returns {hash} actions
+ * @returns {any} actions
  **/
-export default function updateCodeHandler(dispatch) {
+export function updateCodeHandler(dispatch: Function) {
     return {
-        updateCode({ target }) {
-            const code = target.value;
-
+        updateCode(code: string) {
             dispatch({
                 type: ActionTypes.UPDATE_CODE,
                 code
