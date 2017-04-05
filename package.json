@@ -71,7 +71,7 @@
     "debug": "yarn run -- test && webpack-dev-server",
     "flow": "yarn run -- fix && flow",
     "doc": "esdoc",
-    "flow-typed": "mkdir -p flow-typed && flow gen-flow-files src --out-dir flow-typed"
+    "gen-flow-files": "mkdir -p flow-files && flow gen-flow-files src --out-dir flow-files"
   },
   "name": "markdown-editor",
   "version": "1.0.0",
