@@ -70,7 +70,8 @@
     "build": "yarn run -- test && webpack --config webpackfile/prod.js",
     "deploy": "yarn run -- build && gh-pages -d build/Release",
     "analyzer": "yarn run -- test && webpack --json | webpack-bundle-size-analyzer",
-    "debug": "webpack-dev-server",
+    "debug": "yarn run -- test && webpack-dev-server",
+    "doc": "esdoc",
     "flow-typed": "mkdir -p flow-typed && flow gen-flow-files src --out-dir flow-typed"
   },
   "name": "markdown-editor",
