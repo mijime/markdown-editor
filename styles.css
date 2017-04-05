@@ -877,8 +877,11 @@ img {
   overflow: auto;
   margin-bottom: 0; }
 
-li > p:first-child {
-  display: initial; }
+li > p {
+  margin-left: 3rem; }
+  li > p:first-child {
+    display: initial;
+    margin-left: 0; }
 @charset "UTF-8";
 ._3mjdGjH-4b4WKeqc92Er08 {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, "Arial", "Yu Gothic", YuGothic, "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "Hiragino Kaku Gothic ProN", "\30E1\30A4\30EA\30AA", Meiryo, sans-serif;
