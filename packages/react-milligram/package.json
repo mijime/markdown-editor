@@ -3,8 +3,20 @@
   "version": "1.0.0",
   "main": "index.js",
   "license": "MIT",
+  "scripts": {
+    "build": "styleguidist build --verbose",
+    "server": "styleguidist server --verbose"
+  },
   "peerDependencies": {
     "milligram": "^1.3.0",
     "react": "^15.4.2"
+  },
+  "devDependencies": {
+    "babel-loader": "^6.4.1",
+    "css-loader": "^0.28.0",
+    "node-sass": "^4.5.2",
+    "react-styleguidist": "^5.0.6",
+    "sass-loader": "^6.0.3",
+    "style-loader": "^0.16.1"
   }
 }

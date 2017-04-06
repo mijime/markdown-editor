@@ -20,7 +20,7 @@ function Column(props) {
                 props, [
                     mg.column,
                     ratio ? mg[`column-${ratio}`] : "",
-                    offset ? mg[`column-offset-${ratio}`] : ""
+                    offset ? mg[`column-offset-${offset}`] : ""
                 ]
             )
         }, mapToCoreProps(props)),
