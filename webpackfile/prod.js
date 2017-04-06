@@ -1,3 +1,4 @@
+const path = require("path");
 const webpack = require("webpack");
 const HtmlInlineSourcePlugin = require("html-webpack-inline-source-plugin");
 const UglifyJsPlugin = require("uglifyjs-webpack-plugin");
