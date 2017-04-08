@@ -4,11 +4,11 @@ import PreviewProcessor from "../libs/processor";
 
 /**
  * @param {Function} dispatch dispatcher function
- * @returns {any} actions
+ * @returns {Object} actions
  **/
-export function updateCodeHandler(dispatch/* :Function*/) {
+export function updateCodeHandler(dispatch) {
     return {
-        updateCode(code/* :string*/) {
+        updateCode(code) {
             dispatch({
                 type: ActionTypes.UPDATE_CODE,
                 code

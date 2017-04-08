@@ -8,9 +8,19 @@ import { updateCodeHandler } from "../actions/updateCode";
 import styles from "../styles/main.sass";
 
 /**
+ * @typedef {Object} NavigatorProps
+ * @property {React$Element<*>[]} children is children
+ **/
+/* flow-include
+declare type NavigatorProps = {
+    children?: Array<React$Element<*>[]>
+}
+*/
+
+/**
  * @param {string} code is input code
- * @param {any} preview is markdown preview
- * @returns {any} redux state
+ * @param {React$Element<*>} preview is markdown preview
+ * @returns {Object} redux state
  **/
 function mapStateToProps({ code, preview }) {
     return { code, preview };
@@ -18,9 +28,9 @@ function mapStateToProps({ code, preview }) {
 
 /**
  * @param {Function} dispatch dispatcher function
- * @returns {any} actions
+ * @returns {Object} actions
  **/
-function mapDispatchToProps(dispatch/* :Function*/) {
+function mapDispatchToProps(dispatch) {
     const actions = updateCodeHandler(dispatch);
 
     return { actions };
@@ -28,9 +38,9 @@ function mapDispatchToProps(dispatch/* :Function*/) {
 
 /**
  * @param {string} code is input code
- * @param {React.Element<any>} preview is markdown preview
- * @param {any} actions react parameters
- * @returns {React.Element<any>} react components
+ * @param {React$Element<*>} preview is markdown preview
+ * @param {Object} actions react parameters
+ * @returns {React$Element<*>} react components
  **/
 function MainPanel({ code, preview, actions }) {
     return <ReactMg.Container>
@@ -48,20 +58,22 @@ function MainPanel({ code, preview, actions }) {
 }
 
 /**
- * @param {any} children is react parameters
- * @returns {React.Element<any>} react components
+ * @param {NavigatorProps} props is react parameters
+ * @returns {React$Element<*>} react components
  **/
-function Navigator({ children }) {
+function Navigator(props) {
+    const { children } = props;
+
     return <nav className={styles.navigation}>
         {children}
     </nav>;
 }
 
 /**
- * @param {any} props is react parameters
- * @returns {React.Element<any>} react components
+ * @param {Object} props is react parameters
+ * @returns {React$Element<*>} react components
  **/
-function renderApp(props/* :any*/) {
+function renderApp(props) {
     return <div className={styles.app}>
         <MainPanel {...props} />
         <Navigator>
@@ -76,10 +88,10 @@ const App = connect(
 )(renderApp);
 
 /**
- * @param {any} props store parameter
- * @returns {React.Element<any>} return react component
+ * @param {Object} props store parameter
+ * @returns {React$Element<*>} return react component
  **/
-export function Index(props/* :any*/) {
+export function Index(props) {
     return <Provider store={props.store}>
         <App />
     </Provider>;

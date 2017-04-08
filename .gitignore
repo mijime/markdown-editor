@@ -1,5 +1,6 @@
 *.lock
 styleguide
+/build
 
 ### https://raw.github.com/github/gitignore/20cd385794419463136c26d8e76c754fbf2d0678/Node.gitignore
 

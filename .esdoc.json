@@ -1,6 +1,6 @@
 {
   "source": "./src",
-  "destination": "./build/Release/doc",
+  "destination": "./build/doc",
   "experimentalProposal": {
     "classProperties": true,
     "objectRestSpread": true

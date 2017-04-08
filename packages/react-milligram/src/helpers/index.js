@@ -12,8 +12,8 @@ const ButtonDesigns = {
 };
 
 /**
- * @param {React.Props} props is react properties
- * @param {Array<string>} baseClassNames is class name list
+ * @param {Object} props is react properties
+ * @param {string[]} baseClassNames is class name list
  * @returns {string} core react properties
  **/
 function appendMgClassNames(props, baseClassNames = []) {
@@ -44,8 +44,8 @@ function appendMgClassNames(props, baseClassNames = []) {
 
 
 /**
- * @param {React.Props} props is react properties
- * @returns {React.Props} core react properties
+ * @param {Object} props is react properties
+ * @returns {Object} core react properties
  **/
 function mapToCoreProps(props) {
     const nextProps = {};

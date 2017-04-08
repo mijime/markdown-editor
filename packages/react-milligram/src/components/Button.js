@@ -10,8 +10,8 @@ const BUTTON_OUTLINE = "button-outline";
 const BUTTON_CLEAR = "button-clear";
 
 /**
- * @param {React.Props} props is react properties
- * @returns {React.Component} react component
+ * @param {Object} props is react properties
+ * @returns {React$Element<*>} react component
  **/
 function Button(props) {
     const { design } = props;

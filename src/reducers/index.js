@@ -1,12 +1,13 @@
 // @flow
+// :: import from ../../flow/reactive;
 import ActionTypes from "../types/actions";
 
 /**
- * @param {any} state store statement
- * @param {any} action action paramater
- * @returns {any} store statement
+ * @param {Object} state store statement
+ * @param {Object} action action paramater
+ * @returns {Object} store statement
  **/
-export function rootReducer(state/* :any*/, action/* :any*/) {
+export function rootReducer(state, action) {
     switch (action.type) {
         case ActionTypes.UPDATE_PREVIEW:
             return Object.assign({}, state, {

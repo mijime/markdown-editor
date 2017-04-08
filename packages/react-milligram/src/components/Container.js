@@ -7,8 +7,8 @@ const {
 } = require("../helpers");
 
 /**
- * @param {React.Props} props is react properties
- * @returns {React.Component} react component
+ * @param {Object} props is react properties
+ * @returns {React$Element<*>} react component
  **/
 function Container(props) {
     return React.createElement(

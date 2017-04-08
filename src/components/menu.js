@@ -5,10 +5,10 @@ import EditIcon from "bytesize-icons/dist/icons/edit.svg";
 import EyeIcon from "bytesize-icons/dist/icons/eye.svg";
 
 /**
- * @param {any} props is react properties
- * @returns {any} react components
+ * @param {Object} props is react propserties
+ * @returns {React$Element<*>} react components
  **/
-export function Menu(props/* :any*/) {
+export function Menu(props) {
     return <ReactMg.Container>
         <ReactMg.Row>
             <ReactMg.Column>

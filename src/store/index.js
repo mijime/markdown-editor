@@ -3,9 +3,9 @@ import { createStore } from "redux";
 import { rootReducer } from "../reducers";
 
 /**
- * @param {any} initialState inital state
- * @returns {any} return redux store
+ * @param {Object} initialState inital state
+ * @returns {Object} return redux store
  **/
-export function configureStore(initialState/* :any*/) {
+export function configureStore(initialState) {
     return createStore(rootReducer, initialState);
 }
