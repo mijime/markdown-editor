@@ -1,8 +1,12 @@
 [ignore]
-.*/__tests__/.*
-.*/__mocks__/.*
-.*/build/Release/.*
-.*/coverage/.*
+<PROJECT_ROOT>/src/__tests__/.*
+<PROJECT_ROOT>/src/__mocks__/.*
+<PROJECT_ROOT>/build/Release/.*
+<PROJECT_ROOT>/coverage/.*
+
+ # dependencies react-styleguidist
+<PROJECT_ROOT>/node_modules/findup/.*
+<PROJECT_ROOT>/node_modules/jss/.*
 
 [include]
 

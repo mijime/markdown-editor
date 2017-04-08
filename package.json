@@ -65,12 +65,12 @@
   },
   "scripts": {
     "fix": "eslint --fix .",
-    "test": "yarn run -- fix && jest --coverage",
+    "flow": "yarn run -- fix && flow",
+    "test": "yarn run -- flow && jest --coverage",
     "build": "yarn run -- test && webpack --config webpackfile/prod.js",
     "deploy": "yarn run -- build && gh-pages -d build/Release",
     "analyzer": "yarn run -- test && webpack --json | webpack-bundle-size-analyzer",
     "debug": "yarn run -- test && webpack-dev-server",
-    "flow": "yarn run -- fix && flow",
     "doc": "esdoc",
     "gen-flow-files": "mkdir -p flow-files && flow gen-flow-files src --out-dir flow-files"
   },
