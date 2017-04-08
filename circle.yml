@@ -9,6 +9,7 @@ jobs:
     docker:
       - image: node:latest
     steps:
+      - run: apt-get update -qq && apt-get install -qy libelf1
       - checkout
       - run: yarn install --force
       - run: git config --global user.email "circleci@circleci.com"
