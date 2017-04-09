@@ -10,11 +10,6 @@ module.exports = {
         path: path.resolve(__dirname, "build/Release"),
         filename: "[name].js"
     },
-    devServer: {
-        contentBase: path.resolve(__dirname, "build/Release"),
-        port: 3000
-    },
-    devtool: "source-map",
     module: {
         rules: [{
             test: /\.sass$/,

@@ -81,7 +81,7 @@
     "deploy": "yarn run -- build && gh-pages -d build/Release",
     "analyzer": "yarn run -- test && webpack --json | webpack-bundle-size-analyzer",
     "doc": "yarn run -- lint && esdoc && styleguidist build",
-    "debug": "yarn run -- test && webpack-dev-server"
+    "debug": "yarn run -- test && webpack-dev-server --config webpackfile/debug.js"
   },
   "name": "markdown-editor",
   "version": "1.0.0",
