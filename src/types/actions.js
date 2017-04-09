@@ -1,8 +1,6 @@
 // @flow
 const Types = {
-    UPDATE_CODE: "UPDATE_CODE",
-    UPDATE_PREVIEW: "UPDATE_PREVIEW",
-    CACHE_ERROR: "CACHE_ERROR"
+    UPDATE_CODE: "UPDATE_CODE"
 };
 
 export default Types;

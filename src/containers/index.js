@@ -4,6 +4,7 @@ import { connect, Provider } from "react-redux";
 import ReactMg from "react-milligram";
 import { Editor } from "../components/editor";
 import { Menu } from "../components/menu";
+import { Preview } from "../components/preview";
 import { updateCodeHandler } from "../actions/updateCode";
 import styles from "../styles/main.sass";
 
@@ -19,11 +20,10 @@ declare type NavigatorProps = {
 
 /**
  * @param {string} code is input code
- * @param {React$Element<*>} preview is markdown preview
  * @returns {Object} redux state
  **/
-function mapStateToProps({ code, preview }) {
-    return { code, preview };
+function mapStateToProps({ code }) {
+    return { code };
 }
 
 /**
@@ -38,11 +38,10 @@ function mapDispatchToProps(dispatch) {
 
 /**
  * @param {string} code is input code
- * @param {React$Element<*>} preview is markdown preview
  * @param {Object} actions react parameters
  * @returns {React$Element<*>} react components
  **/
-function MainPanel({ code, preview, actions }) {
+function MainPanel({ code, actions }) {
     return <ReactMg.Container>
         <ReactMg.Row>
             <ReactMg.Column className={styles.screen}>
@@ -51,7 +50,7 @@ function MainPanel({ code, preview, actions }) {
                     onUpdateValue={actions.updateCode} />
             </ReactMg.Column>
             <ReactMg.Column className={styles.screen}>
-                {preview}
+                <Preview value={code} />
             </ReactMg.Column>
         </ReactMg.Row>
     </ReactMg.Container>;

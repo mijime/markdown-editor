@@ -1,5 +1,4 @@
 // @flow
-// :: import from ../../flow/reactive;
 import ActionTypes from "../types/actions";
 
 /**
@@ -9,11 +8,6 @@ import ActionTypes from "../types/actions";
  **/
 export function rootReducer(state, action) {
     switch (action.type) {
-        case ActionTypes.UPDATE_PREVIEW:
-            return Object.assign({}, state, {
-                preview: action.preview
-            });
-
         case ActionTypes.UPDATE_CODE:
             return Object.assign({}, state, {
                 code: action.code
