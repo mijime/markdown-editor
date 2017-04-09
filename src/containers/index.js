@@ -20,7 +20,7 @@ declare type NavigatorProps = {
 
 /**
  * @param {string} code is input code
- * @returns {Object} redux state
+ * @returns {MainState} redux state
  **/
 function mapStateToProps({ code }) {
     return { code };

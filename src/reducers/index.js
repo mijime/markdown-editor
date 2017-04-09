@@ -1,8 +1,11 @@
 // @flow
+/* ::
+import type { MainState } from "../types";
+*/
 import ActionTypes from "../types/actions";
 
 /**
- * @param {Object} state store statement
+ * @param {MainState} state store statement
  * @param {Object} action action paramater
  * @returns {Object} store statement
  **/
