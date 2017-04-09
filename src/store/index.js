@@ -1,10 +1,9 @@
 // @flow
-import { createStore } from "redux";
-import { rootReducer } from "../reducers";
-
-/* flow-include
+/* ::
 import type { MainState } from "../types";
 */
+import { createStore } from "redux";
+import { rootReducer } from "../reducers";
 
 /**
  * @param {MainState} initialState inital state

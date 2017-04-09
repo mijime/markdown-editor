@@ -1,16 +1,16 @@
 // @flow
-import React from "react";
-import PreviewProcessor from "../libs/processor";
-
-/**
- * @typedef {Object} PreviewProps
- * @property {string} value
- **/
-/* flow-include
+/* ::
 type PreviewProps = {
     value: string;
 }
 */
+/**
+ * @typedef {Object} PreviewProps
+ * @property {string} value
+ **/
+
+import React from "react";
+import PreviewProcessor from "../libs/processor";
 
 /**
  * @class

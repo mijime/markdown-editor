@@ -1,20 +1,20 @@
 // @flow
-import React from "react";
-import styles from "../styles/main.sass";
-
-/**
- * @typedef {Object} EditorProps
- * @property {string} id is id
- * @property {string} value is value
- * @property {Function} onUpdateValue is onUpdateValue
- **/
-/* flow-include
+/* ::
 declare type EditorProps = {
     id: string;
     value: string;
     onUpdateValue: Function;
 }
 */
+/**
+ * @typedef {Object} EditorProps
+ * @property {string} id is id
+ * @property {string} value is value
+ * @property {Function} onUpdateValue is onUpdateValue
+ **/
+
+import React from "react";
+import styles from "../styles/main.sass";
 
 /**
  * @param {Function} bind is bind function

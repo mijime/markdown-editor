@@ -1,5 +1,5 @@
 // @flow
-/* flow-include
+/* ::
 export type MainState = {
   code: string;
 };

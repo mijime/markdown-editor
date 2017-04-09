@@ -1,4 +1,15 @@
 // @flow
+/* ::
+import type { MainState } from "../types";
+declare type NavigatorProps = {
+    children?: Array<React$Element<*>[]>
+}
+*/
+/**
+ * @typedef {Object} NavigatorProps
+ * @property {React$Element<*>[]} children is children
+ **/
+
 import React from "react";
 import { connect, Provider } from "react-redux";
 import ReactMg from "react-milligram";
@@ -7,16 +18,6 @@ import { Menu } from "../components/menu";
 import { Preview } from "../components/preview";
 import { updateCodeHandler } from "../actions/updateCode";
 import styles from "../styles/main.sass";
-
-/**
- * @typedef {Object} NavigatorProps
- * @property {React$Element<*>[]} children is children
- **/
-/* flow-include
-declare type NavigatorProps = {
-    children?: Array<React$Element<*>[]>
-}
-*/
 
 /**
  * @param {string} code is input code
