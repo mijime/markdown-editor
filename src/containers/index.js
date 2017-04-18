@@ -68,9 +68,9 @@ function Navigator(props) {
     const { children } = props;
 
     return <nav className={[
-              styles.hidePrint,
-              styles.navigation
-            ].join(" ")}>
+        styles.hidePrint,
+        styles.navigation
+    ].join(" ")}>
         {children}
     </nav>;
 }
