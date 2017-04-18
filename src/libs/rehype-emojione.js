@@ -12,6 +12,11 @@ const NodeTagNames = {
     IMAGE: "img"
 };
 
+/**
+ * @param {Array<Object>} nodes hast children
+ * @param {string} text not parsed text
+ * @returns {Array<Object>} hast children
+ **/
 function sliceToEmoji(nodes, text) {
     const sliced = emojione.regShortNames.exec(text);
 
@@ -55,7 +60,15 @@ function sliceToEmoji(nodes, text) {
     return sliceToEmoji(nodes, nextText);
 }
 
-export default function plugin(settings) {
+/**
+ * @returns {Function} transform function
+ **/
+export default function plugin() {
+
+    /**
+     * @param {Object} node hast node
+     * @returns {void} not return
+     **/
     function transformer(node) {
         if (node.type !== NodeTypes.TEXT) {
             if (!node.children) {
