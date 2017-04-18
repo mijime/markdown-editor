@@ -45,7 +45,10 @@ function mapDispatchToProps(dispatch) {
 function MainPanel({ code, actions }) {
     return <ReactMg.Container>
         <ReactMg.Row>
-            <ReactMg.Column className={styles.screen}>
+            <ReactMg.Column className={[
+                styles.screen,
+                styles.hidePrint
+            ].join(" ")}>
                 <Editor id={"code"}
                     value={code}
                     onUpdateValue={actions.updateCode} />
@@ -64,7 +67,10 @@ function MainPanel({ code, actions }) {
 function Navigator(props) {
     const { children } = props;
 
-    return <nav className={styles.navigation}>
+    return <nav className={[
+              styles.hidePrint,
+              styles.navigation
+            ].join(" ")}>
         {children}
     </nav>;
 }
