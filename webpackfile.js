@@ -1,6 +1,7 @@
 const path = require("path");
 const HtmlPlugin = require("html-webpack-plugin");
 const ExtractTextPlugin = require("extract-text-webpack-plugin");
+const extractCssPlugin = new ExtractTextPlugin("extract-[name].css");
 
 module.exports = {
     entry: {
@@ -13,7 +14,7 @@ module.exports = {
     module: {
         rules: [{
             test: /\.sass$/,
-            use: ExtractTextPlugin.extract({
+            use: extractCssPlugin.extract({
                 fallback: "style-loader",
                 use: [
                     "css-loader?modules",
@@ -22,7 +23,7 @@ module.exports = {
             })
         }, {
             test: /\.css$/,
-            use: ExtractTextPlugin.extract({
+            use: extractCssPlugin.extract({
                 fallback: "style-loader",
                 use: ["css-loader"]
             })
@@ -39,7 +40,7 @@ module.exports = {
         }]
     },
     plugins: [
-        new ExtractTextPlugin("styles.css"),
+        extractCssPlugin,
         new HtmlPlugin({
             template: path.resolve(__dirname, "src/assets/index.html"),
             inlineSource: ".(js|css)$"
