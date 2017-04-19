@@ -924,24 +924,20 @@ li > p {
 
 h1 ._3TfIl-wc7FNS8LUTY01jPO {
   height: 4.6rem;
-  width: 4.6rem;
-  bottom: -1.15rem; }
+  bottom: -1.0rem; }
 
 h2 ._3TfIl-wc7FNS8LUTY01jPO {
   height: 3.6rem;
-  width: 3.6rem;
-  bottom: -0.9rem; }
+  bottom: -0.7rem; }
 
 h3 ._3TfIl-wc7FNS8LUTY01jPO {
   height: 2.6rem;
-  width: 2.6rem;
-  bottom: -0.65rem; }
+  bottom: -0.4rem; }
 
 ._3TfIl-wc7FNS8LUTY01jPO {
-  width: 1.6rem;
   height: 1.6rem;
-  position: relative;
-  bottom: -0.4rem; }
+  bottom: -0.2rem;
+  position: relative; }
 /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
