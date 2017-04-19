@@ -2,7 +2,7 @@
 
 import React from "react";
 import remark from "remark";
-import emoji4remark from "remark-emoji";
+import emojione4rehype from "./rehype-emojione";
 import remark2rehype from "remark-rehype";
 import rehype2react from "rehype-react";
 import prism4rehype from "rehype-prism";
@@ -15,9 +15,9 @@ import "prismjs/components/prism-sql";
 import "prismjs/themes/prism.css";
 
 const Processor = remark()
-    .use(emoji4remark)
     .use(remark2rehype)
     .use(prism4rehype)
+    .use(emojione4rehype)
     .use(rehype2react, {
         createElement: React.createElement
     });
