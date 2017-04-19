@@ -61,7 +61,8 @@ function sliceToEmoji(text, nodes = []) {
             properties: {
                 class: styles.emojione,
                 alt: unicode,
-                src: `https://cdn.jsdelivr.net/emojione/assets/svg/${ascii}.svg`
+                title: shortname,
+                src: `//cdn.jsdelivr.net/emojione/assets/svg/${ascii}.svg`
             }
         });
     } else {
