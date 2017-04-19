@@ -1,5 +1,6 @@
 // @flow
-import emojione from "emojione";
+import emoji from "node-emoji";
+import styles from "../styles/main.sass";
 
 const NodeTypes = {
     TEXT: "text",
@@ -11,13 +12,27 @@ const NodeTagNames = {
     IMAGE: "img"
 };
 
+const RegexpEmoji = /:-1:|:+1:|:[\w-]+:/;
+
 /**
- * @param {Array<Object>} nodes hast children
+ * @param {string} text text
+ * @returns {string} remove colon text
+ **/
+function removeColon(text) {
+    return text.replace(/:/g, "");
+}
+
+/**
  * @param {string} text not parsed text
+ * @param {Array<Object>} nodes hast children
  * @returns {Array<Object>} hast children
  **/
-function sliceToEmoji(nodes, text) {
-    const sliced = emojione.regShortNames.exec(text);
+function sliceToEmoji(text, nodes = []) {
+    if (!text || text.length <= 0) {
+        return nodes;
+    }
+
+    const sliced = RegexpEmoji.exec(text);
 
     if (!sliced) {
         nodes.push({
@@ -27,11 +42,6 @@ function sliceToEmoji(nodes, text) {
         return nodes;
     }
 
-    const shortname = sliced[0];
-    const unicode = emojione.emojioneList[shortname]
-    .unicode[emojione.emojioneList[shortname]
-      .unicode.length - 1];
-
     if (sliced.index > 0) {
         nodes.push({
             type: NodeTypes.TEXT,
@@ -39,22 +49,33 @@ function sliceToEmoji(nodes, text) {
         });
     }
 
-    nodes.push({
-        tagName: NodeTagNames.IMAGE,
-        type: NodeTypes.ELEMENT,
-        properties: {
-            class: "emojione",
-            alt: emojione.unicodeAlt ? emojione.convert(unicode.toUpperCase()) : shortname,
-            title: shortname,
-            src: `${emojione.imagePathPNG}${unicode}.png${emojione.cacheBustParam}`
-        }
-    });
+    const shortname = removeColon(sliced[0]);
+    const unicode = emoji.get(shortname);
+
+    if (unicode && unicode !== sliced[0]) {
+        const ascii = unicode.codePointAt().toString(0x10);
+
+        nodes.push({
+            tagName: NodeTagNames.IMAGE,
+            type: NodeTypes.ELEMENT,
+            properties: {
+                class: styles.emojione,
+                alt: unicode,
+                src: `https://cdn.jsdelivr.net/emojione/assets/svg/${ascii}.svg`
+            }
+        });
+    } else {
+        nodes.push({
+            type: NodeTypes.TEXT,
+            value: sliced[0]
+        });
+    }
 
     const nextText = text.substr(
-    sliced.index + shortname.length,
+    sliced.index + sliced[0].length,
     text.length);
 
-    return sliceToEmoji(nodes, nextText);
+    return sliceToEmoji(nextText, nodes);
 }
 
 /**
@@ -76,7 +97,7 @@ export default function plugin() {
             return;
         }
 
-        node.children = sliceToEmoji([], node.value);
+        node.children = sliceToEmoji(node.value);
         node.tagName = NodeTagNames.SPAN;
         node.type = NodeTypes.ELEMENT;
         delete node.value;
