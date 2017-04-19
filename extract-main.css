@@ -861,6 +861,10 @@ img {
   max-height: 90vh;
   overflow: auto; }
 
+@media print {
+  ._3NxsNkUbEKL8EU5E7vY7WJ {
+    overflow: initial; } }
+
 .l68fwcgDTNOJpPwmTJCnM {
   transition: 0.5s;
   position: fixed;
@@ -892,6 +896,10 @@ li > p {
   max-height: 90vh;
   overflow: auto; }
 
+@media print {
+  ._14tXY7mzOVUgAG3J4yS2g8 {
+    overflow: initial; } }
+
 ._39zFpwr2ysgzI62eHUUr1c {
   transition: 0.5s;
   position: fixed;
@@ -913,6 +921,27 @@ li > p {
     margin: 0; }
   ._1sF-I1uzf6EGLO1nXH42V2 {
     display: none !important; } }
+
+h1 ._3TfIl-wc7FNS8LUTY01jPO {
+  height: 4.6rem;
+  width: 4.6rem;
+  bottom: -1.15rem; }
+
+h2 ._3TfIl-wc7FNS8LUTY01jPO {
+  height: 3.6rem;
+  width: 3.6rem;
+  bottom: -0.9rem; }
+
+h3 ._3TfIl-wc7FNS8LUTY01jPO {
+  height: 2.6rem;
+  width: 2.6rem;
+  bottom: -0.65rem; }
+
+._3TfIl-wc7FNS8LUTY01jPO {
+  width: 1.6rem;
+  height: 1.6rem;
+  position: relative;
+  bottom: -0.4rem; }
 /**
  * prism.js default theme for JavaScript, CSS and HTML
  * Based on dabblet (http://dabblet.com)
