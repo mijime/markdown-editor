@@ -18,8 +18,6 @@ module.exports = {
         }
     },
     rules: {
-        "no-console": "off",
-
         // https://github.com/yannickcr/eslint-plugin-react/tree/master/docs/rules
         "react/jsx-equals-spacing": ["error", "never"],
         "react/jsx-no-duplicate-props": ["error", { ignoreCase: true }],

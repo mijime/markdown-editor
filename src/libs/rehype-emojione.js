@@ -20,8 +20,6 @@ const NodeTagNames = {
 function sliceToEmoji(nodes, text) {
     const sliced = emojione.regShortNames.exec(text);
 
-    console.log(text, sliced);
-
     if (!sliced) {
         nodes.push({
             type: NodeTypes.TEXT,
@@ -83,7 +81,6 @@ export default function plugin() {
         node.tagName = NodeTagNames.SPAN;
         node.type = NodeTypes.ELEMENT;
         delete node.value;
-        console.log(node);
     }
 
     return transformer;
