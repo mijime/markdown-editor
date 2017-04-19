@@ -2,17 +2,16 @@
 import emoji from "node-emoji";
 import styles from "../styles/main.sass";
 
+const URL_EMOJIONE_SVG = "//cdn.jsdelivr.net/emojione/assets/svg";
+const REGEXP_EMOJI = /:-1:|:+1:|:[\w-]+:/;
 const NodeTypes = {
     TEXT: "text",
     ELEMENT: "element"
 };
-
 const NodeTagNames = {
     SPAN: "span",
     IMAGE: "img"
 };
-
-const RegexpEmoji = /:-1:|:+1:|:[\w-]+:/;
 
 /**
  * @param {string} text text
@@ -32,7 +31,7 @@ function sliceToEmoji(text, nodes = []) {
         return nodes;
     }
 
-    const sliced = RegexpEmoji.exec(text);
+    const sliced = REGEXP_EMOJI.exec(text);
 
     if (!sliced) {
         nodes.push({
@@ -50,19 +49,19 @@ function sliceToEmoji(text, nodes = []) {
     }
 
     const shortname = removeColon(sliced[0]);
-    const unicode = emoji.get(shortname);
+    const ascii = emoji.get(shortname);
 
-    if (unicode && unicode !== sliced[0]) {
-        const ascii = unicode.codePointAt().toString(0x10);
+    if (ascii && ascii !== sliced[0]) {
+        const unicode = ascii.codePointAt().toString(0x10);
 
         nodes.push({
             tagName: NodeTagNames.IMAGE,
             type: NodeTypes.ELEMENT,
             properties: {
                 class: styles.emojione,
-                alt: unicode,
+                alt: ascii,
                 title: shortname,
-                src: `//cdn.jsdelivr.net/emojione/assets/svg/${ascii}.svg`
+                src: `${URL_EMOJIONE_SVG}/${unicode}.svg`
             }
         });
     } else {
