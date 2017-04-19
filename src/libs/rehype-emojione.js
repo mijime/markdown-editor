@@ -7,7 +7,6 @@ const NodeTypes = {
 };
 
 const NodeTagNames = {
-    PARAGRAPH: "p",
     SPAN: "span",
     IMAGE: "img"
 };
