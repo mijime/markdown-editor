@@ -36,7 +36,7 @@ module.exports = {
 
         // https://github.com/evcohen/eslint-plugin-jsx-a11y/tree/master/docs/rules
         "jsx-a11y/aria-role": "error",
-        "jsx-a11y/img-has-alt": "error",
+        "jsx-a11y/alt-text": "error",
         "jsx-a11y/img-redundant-alt": "error",
         "jsx-a11y/no-access-key": "error",
     }
