@@ -43,7 +43,7 @@
     "sass-loader": "^6.0.5",
     "style-loader": "^0.17.0",
     "svg-react-loader": "^0.3.7",
-    "uglify-js": "https://github.com/mishoo/UglifyJS2.git#harmony",
+    "uglify-js": "^3.0.7",
     "uglifyjs-webpack-plugin": "^0.4.3",
     "webpack": "^2.5.1",
     "webpack-bundle-size-analyzer": "^2.5.0",
