@@ -12,7 +12,9 @@ module.exports = Object.assign({}, webpackConfig, {
             react: "preact-compat",
             "react-dom": "preact-compat",
             "milligram/src/milligram.sass": path.resolve(
-                __dirname, "../src/styles/milligram.sass")
+                __dirname,
+                "../src/styles/milligram.sass"
+            )
         }
     }
 });

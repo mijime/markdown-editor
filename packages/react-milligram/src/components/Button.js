@@ -18,18 +18,18 @@ function Button(props) {
 
     return React.createElement(
         ReactCoreTypes.BUTTON,
-        Object.assign({
-            className: appendMgClassNames(
-                props, [
+        Object.assign(
+            {
+                className: appendMgClassNames(props, [
                     mg.button,
-                    design === ButtonDesigns.OUTLINE
-                    ? mg[BUTTON_OUTLINE] : "",
-                    design === ButtonDesigns.CLEAR
-                    ? mg[BUTTON_CLEAR] : ""
-                ]
-            )
-        }, mapToCoreProps(props)),
-        props.children);
+                    design === ButtonDesigns.OUTLINE ? mg[BUTTON_OUTLINE] : "",
+                    design === ButtonDesigns.CLEAR ? mg[BUTTON_CLEAR] : ""
+                ])
+            },
+            mapToCoreProps(props)
+        ),
+        props.children
+    );
 }
 
 module.exports = Button;

@@ -31,8 +31,13 @@ function bindUpdateValue(bind) {
  * @returns {React$Element<*>} editor component
  **/
 export function Editor(props) {
-    return <textarea id={props.id} className={styles.editor}
-        onChange={bindUpdateValue(props.onUpdateValue)}>
-        {props.value}
-    </textarea>;
+    return (
+        <textarea
+            id={props.id}
+            className={styles.editor}
+            onChange={bindUpdateValue(props.onUpdateValue)}
+        >
+            {props.value}
+        </textarea>
+    );
 }

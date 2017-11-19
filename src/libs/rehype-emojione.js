@@ -71,9 +71,7 @@ function sliceToEmoji(text, nodes = []) {
         });
     }
 
-    const nextText = text.substr(
-    sliced.index + sliced[0].length,
-    text.length);
+    const nextText = text.substr(sliced.index + sliced[0].length, text.length);
 
     return sliceToEmoji(nextText, nodes);
 }

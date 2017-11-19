@@ -43,21 +43,24 @@ function mapDispatchToProps(dispatch) {
  * @returns {React$Element<*>} react components
  **/
 function MainPanel({ code, actions }) {
-    return <ReactMg.Container>
-        <ReactMg.Row>
-            <ReactMg.Column className={[
-                styles.screen,
-                styles.hidePrint
-            ].join(" ")}>
-                <Editor id={"code"}
-                    value={code}
-                    onUpdateValue={actions.updateCode} />
-            </ReactMg.Column>
-            <ReactMg.Column className={styles.screen}>
-                <Preview value={code} />
-            </ReactMg.Column>
-        </ReactMg.Row>
-    </ReactMg.Container>;
+    return (
+        <ReactMg.Container>
+            <ReactMg.Row>
+                <ReactMg.Column
+                    className={[styles.screen, styles.hidePrint].join(" ")}
+                >
+                    <Editor
+                        id={"code"}
+                        value={code}
+                        onUpdateValue={actions.updateCode}
+                    />
+                </ReactMg.Column>
+                <ReactMg.Column className={styles.screen}>
+                    <Preview value={code} />
+                </ReactMg.Column>
+            </ReactMg.Row>
+        </ReactMg.Container>
+    );
 }
 
 /**
@@ -67,12 +70,11 @@ function MainPanel({ code, actions }) {
 function Navigator(props) {
     const { children } = props;
 
-    return <nav className={[
-        styles.hidePrint,
-        styles.navigation
-    ].join(" ")}>
-        {children}
-    </nav>;
+    return (
+        <nav className={[styles.hidePrint, styles.navigation].join(" ")}>
+            {children}
+        </nav>
+    );
 }
 
 /**
@@ -80,25 +82,26 @@ function Navigator(props) {
  * @returns {React$Element<*>} react components
  **/
 function renderApp(props) {
-    return <div className={styles.app}>
-        <MainPanel {...props} />
-        <Navigator>
-            <Menu {...props} />
-        </Navigator>
-    </div>;
+    return (
+        <div className={styles.app}>
+            <MainPanel {...props} />
+            <Navigator>
+                <Menu {...props} />
+            </Navigator>
+        </div>
+    );
 }
 
-const App = connect(
-    mapStateToProps,
-    mapDispatchToProps
-)(renderApp);
+const App = connect(mapStateToProps, mapDispatchToProps)(renderApp);
 
 /**
  * @param {Object} props store parameter
  * @returns {React$Element<*>} return react component
  **/
 export function Index(props) {
-    return <Provider store={props.store}>
-        <App />
-    </Provider>;
+    return (
+        <Provider store={props.store}>
+            <App />
+        </Provider>
+    );
 }

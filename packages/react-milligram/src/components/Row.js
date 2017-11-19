@@ -13,12 +13,14 @@ const {
 function Row(props) {
     return React.createElement(
         ReactCoreTypes.UL,
-        Object.assign({
-            className: appendMgClassNames(
-                props, [mg.row]
-            )
-        }, mapToCoreProps(props)),
-        props.children);
+        Object.assign(
+            {
+                className: appendMgClassNames(props, [mg.row])
+            },
+            mapToCoreProps(props)
+        ),
+        props.children
+    );
 }
 
 module.exports = Row;

@@ -8,7 +8,4 @@ const store = configureStore({
     code: ""
 });
 
-ReactDOM.render(
-    <Index store={store} />,
-    document.getElementById("app")
-);
+ReactDOM.render(<Index store={store} />, document.getElementById("app"));

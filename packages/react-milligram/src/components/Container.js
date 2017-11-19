@@ -13,12 +13,14 @@ const {
 function Container(props) {
     return React.createElement(
         ReactCoreTypes.DIV,
-        Object.assign({
-            className: appendMgClassNames(
-                props, [mg.container]
-            )
-        }, mapToCoreProps(props)),
-        props.children);
+        Object.assign(
+            {
+                className: appendMgClassNames(props, [mg.container])
+            },
+            mapToCoreProps(props)
+        ),
+        props.children
+    );
 }
 
 module.exports = Container;

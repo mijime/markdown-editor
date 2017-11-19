@@ -34,16 +34,16 @@ function plugin() {
         }
 
         const grammer = Array.from(tree.properties.className)
-              .filter(name => name.match(/^language-[\w]+/))
-              .map(name => name.split("-")[1])
-              .map(lang => prism.languages[lang])
-              .reduce((acc, curr) => {
-                  if (acc) {
-                      return acc;
-                  }
+            .filter(name => name.match(/^language-[\w]+/))
+            .map(name => name.split("-")[1])
+            .map(lang => prism.languages[lang])
+            .reduce((acc, curr) => {
+                if (acc) {
+                    return acc;
+                }
 
-                  return curr;
-              });
+                return curr;
+            });
 
         if (!grammer) {
             return;
@@ -64,11 +64,13 @@ function plugin() {
                         properties: {
                             className: [type, "token"]
                         },
-                        children: [{
-                            type: NodeTypes.TEXT,
-                            value: content,
-                            position: tree.position // FIXME
-                        }],
+                        children: [
+                            {
+                                type: NodeTypes.TEXT,
+                                value: content,
+                                position: tree.position // FIXME
+                            }
+                        ],
                         position: tree.position // FIXME
                     };
                 }

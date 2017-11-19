@@ -15,16 +15,18 @@ function Column(props) {
 
     return React.createElement(
         ReactCoreTypes.LI,
-        Object.assign({
-            className: appendMgClassNames(
-                props, [
+        Object.assign(
+            {
+                className: appendMgClassNames(props, [
                     mg.column,
                     ratio ? mg[`column-${ratio}`] : "",
                     offset ? mg[`column-offset-${offset}`] : ""
-                ]
-            )
-        }, mapToCoreProps(props)),
-        props.children);
+                ])
+            },
+            mapToCoreProps(props)
+        ),
+        props.children
+    );
 }
 
 module.exports = Column;
