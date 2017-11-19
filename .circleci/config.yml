@@ -7,16 +7,16 @@ jobs:
         - master
     working_directory: /var/app
     docker:
-      - image: node:7
+      - image: node:latest
     steps:
       - run: apt-get update -qq && apt-get install -qy libelf1
       - checkout
-      - run: yarn install --force
+      - run: npm install
       - run: git config --global user.email "circleci@circleci.com"
       - run: git config --global user.name "circleci"
       - run: mkdir -p build/Release
       - run: cp -rv .circleci/config.yml build/Release/circle.yml
-      - run: yarn run -- deploy
+      - run: npm run deploy
   test:
     branches:
       ignore:
@@ -28,6 +28,6 @@ jobs:
     steps:
       - run: apt-get update -qq && apt-get install -qy libelf1
       - checkout
-      - run: yarn install --force
-      - run: yarn test
+      - run: npm install
+      - run: npm test
 ...
