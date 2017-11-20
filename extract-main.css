@@ -854,12 +854,20 @@ img {
 
 ._22LFmC_DMR4tp0nrTajseb {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, "Arial", "Yu Gothic", YuGothic, "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "Hiragino Kaku Gothic ProN", "\30E1\30A4\30EA\30AA", Meiryo, sans-serif;
-  padding-top: 1rem; }
+  padding-top: 1rem;
+  font-weight: 500; }
 
 ._3NxsNkUbEKL8EU5E7vY7WJ {
   height: 90vh;
   max-height: 90vh;
   overflow: auto; }
+
+._3npr-X0vZUUcV_s5I9szG5 {
+  height: 90vh;
+  max-height: 90vh;
+  overflow: auto;
+  position: absolute;
+  background: #fff; }
 
 @media print {
   ._3NxsNkUbEKL8EU5E7vY7WJ {
@@ -889,12 +897,20 @@ li > p {
 @charset "UTF-8";
 ._3mjdGjH-4b4WKeqc92Er08 {
   font-family: "Open Sans", "Helvetica Neue", Helvetica, "Arial", "Yu Gothic", YuGothic, "\30D2\30E9\30AE\30CE\89D2\30B4   ProN W3", "Hiragino Kaku Gothic ProN", "\30E1\30A4\30EA\30AA", Meiryo, sans-serif;
-  padding-top: 1rem; }
+  padding-top: 1rem;
+  font-weight: 500; }
 
 ._14tXY7mzOVUgAG3J4yS2g8 {
   height: 90vh;
   max-height: 90vh;
   overflow: auto; }
+
+.CqzqqwkYWJLc_LGZPey9m {
+  height: 90vh;
+  max-height: 90vh;
+  overflow: auto;
+  position: absolute;
+  background: #fff; }
 
 @media print {
   ._14tXY7mzOVUgAG3J4yS2g8 {
