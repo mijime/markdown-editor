@@ -43,6 +43,21 @@ function mapDispatchToProps(dispatch) {
  * @returns {React$Element<*>} react components
  **/
 function MainPanel({ code, actions }) {
+    let editorRef = null;
+
+    /**
+     * @param {Event} event is event
+     * @returns {void} no return
+     **/
+    function focusEditor(event) {
+        if (!editorRef) {
+            return;
+        }
+
+        editorRef.focus();
+        event.preventDefault();
+    }
+
     return (
         <ReactMg.Container>
             <ReactMg.Row>
@@ -51,11 +66,15 @@ function MainPanel({ code, actions }) {
                 >
                     <Editor
                         id={"code"}
+                        inputRef={editor => (editorRef = editor)}
                         value={code}
                         onUpdateValue={actions.updateCode}
                     />
                 </ReactMg.Column>
-                <ReactMg.Column className={styles.screen}>
+                <ReactMg.Column
+                    className={styles.previewScreen}
+                    onClick={focusEditor}
+                >
                     <Preview value={code} />
                 </ReactMg.Column>
             </ReactMg.Row>

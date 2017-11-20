@@ -11,6 +11,7 @@ module.exports = Object.assign({}, webpackConfig, {
         alias: {
             react: "preact-compat",
             "react-dom": "preact-compat",
+            "react-redux": "preact-redux",
             "milligram/src/milligram.sass": path.resolve(
                 __dirname,
                 "../src/styles/milligram.sass"

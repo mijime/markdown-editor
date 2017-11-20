@@ -34,6 +34,7 @@ export function Editor(props) {
     return (
         <textarea
             id={props.id}
+            ref={props.inputRef}
             className={styles.editor}
             onChange={bindUpdateValue(props.onUpdateValue)}
         >
