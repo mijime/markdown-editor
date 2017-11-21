@@ -889,6 +889,10 @@ img {
   overflow: auto;
   margin-bottom: 0; }
 
+._16AlLMq_MQzb_jDp2OHLMg {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(255, 255, 255, 0.2) 0 1px 0; }
+
 li > p {
   margin-left: 3rem; }
   li > p:first-child {
@@ -931,6 +935,10 @@ li > p {
   max-height: 85vh;
   overflow: auto;
   margin-bottom: 0; }
+
+._243VrBzJEQhbj4psHbbAtt {
+  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+  box-shadow: rgba(255, 255, 255, 0.2) 0 1px 0; }
 
 @media print {
   @page {
