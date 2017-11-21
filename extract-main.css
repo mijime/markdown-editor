@@ -860,14 +860,14 @@ img {
 ._3NxsNkUbEKL8EU5E7vY7WJ {
   height: 90vh;
   max-height: 90vh;
-  overflow: auto; }
+  overflow: auto;
+  position: absolute;
+  left: -200vh; }
 
 ._3npr-X0vZUUcV_s5I9szG5 {
   height: 90vh;
   max-height: 90vh;
-  overflow: auto;
-  position: absolute;
-  background: #fff; }
+  overflow: auto; }
 
 @media print {
   ._3NxsNkUbEKL8EU5E7vY7WJ {
@@ -891,7 +891,7 @@ img {
 
 ._16AlLMq_MQzb_jDp2OHLMg {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: rgba(255, 255, 255, 0.2) 0 1px 0; }
+  box-shadow: rgba(255, 255, 255, 0.6) 0 1px 0; }
 
 li > p {
   margin-left: 3rem; }
@@ -907,14 +907,14 @@ li > p {
 ._14tXY7mzOVUgAG3J4yS2g8 {
   height: 90vh;
   max-height: 90vh;
-  overflow: auto; }
+  overflow: auto;
+  position: absolute;
+  left: -200vh; }
 
 .CqzqqwkYWJLc_LGZPey9m {
   height: 90vh;
   max-height: 90vh;
-  overflow: auto;
-  position: absolute;
-  background: #fff; }
+  overflow: auto; }
 
 @media print {
   ._14tXY7mzOVUgAG3J4yS2g8 {
@@ -938,7 +938,7 @@ li > p {
 
 ._243VrBzJEQhbj4psHbbAtt {
   border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  box-shadow: rgba(255, 255, 255, 0.2) 0 1px 0; }
+  box-shadow: rgba(255, 255, 255, 0.6) 0 1px 0; }
 
 @media print {
   @page {
