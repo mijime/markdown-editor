@@ -11,6 +11,44 @@ type PreviewProps = {
 
 import React from "react";
 import PreviewProcessor from "../libs/processor";
+import styles from "../styles/main.sass";
+
+let currentSelection = null;
+
+/** *
+ * @param {Node} node is node
+ * @returns {void}
+ **/
+function walk(node) {
+    if (!node || !node.position) {
+        return;
+    }
+
+    const { start, end } = node.position;
+
+    if (
+        node.type === "element" &&
+        start.offset < currentSelection.selectionStart &&
+        end.offset > currentSelection.selectionEnd
+    ) {
+        node.properties.className = styles.cursor;
+        return;
+    }
+
+    if (!node.children) {
+        return;
+    }
+
+    node.children.map(walk);
+}
+
+const customProcessor = PreviewProcessor.use(() => node => {
+    if (!currentSelection) {
+        return;
+    }
+
+    walk(node);
+});
 
 /**
  * @class
@@ -39,9 +77,11 @@ export class Preview extends React.Component {
      * @returns {void} async
      **/
     componentWillReceiveProps(props) {
-        const { value } = props;
+        const { value, selection } = props;
 
-        PreviewProcessor.process(value, (error, file) => {
+        currentSelection = selection;
+
+        customProcessor.process(value, (error, file) => {
             if (error !== null) {
                 return;
             }

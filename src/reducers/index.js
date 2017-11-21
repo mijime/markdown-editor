@@ -16,6 +16,11 @@ export function rootReducer(state, action) {
                 code: action.code
             });
 
+        case ActionTypes.UPDATE_SELECTION:
+            return Object.assign({}, state, {
+                selection: action.selection
+            });
+
         default:
             return state;
     }

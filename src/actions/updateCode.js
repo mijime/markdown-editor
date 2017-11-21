@@ -12,6 +12,12 @@ export function updateCodeHandler(dispatch) {
                 type: ActionTypes.UPDATE_CODE,
                 code
             });
+        },
+        updateSelection(selection) {
+            dispatch({
+                type: ActionTypes.UPDATE_SELECTION,
+                selection
+            });
         }
     };
 }

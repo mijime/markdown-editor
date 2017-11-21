@@ -21,8 +21,28 @@ import styles from "../styles/main.sass";
  * @returns {Function} event function
  **/
 function bindUpdateValue(bind) {
-    return function onUpdateValue(event) {
+    if (!bind) {
+        return null;
+    }
+
+    return function onEvent(event) {
         bind(event.target.value);
+    };
+}
+
+/**
+ * @param {Function} bind is bind function
+ * @returns {Function} event function
+ **/
+function bindSelection(bind) {
+    if (!bind) {
+        return null;
+    }
+
+    return function onEvent(event) {
+        const { selectionStart, selectionEnd } = event.target;
+
+        bind({ selectionStart, selectionEnd });
     };
 }
 
@@ -36,6 +56,7 @@ export function Editor(props) {
             id={props.id}
             ref={props.inputRef}
             className={styles.editor}
+            onKeydown={bindSelection(props.onSelection)}
             onChange={bindUpdateValue(props.onUpdateValue)}
         >
             {props.value}

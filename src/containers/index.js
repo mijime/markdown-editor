@@ -14,7 +14,6 @@ import React from "react";
 import { connect, Provider } from "react-redux";
 import ReactMg from "react-milligram";
 import { Editor } from "../components/editor";
-import { Menu } from "../components/menu";
 import { Preview } from "../components/preview";
 import { updateCodeHandler } from "../actions/updateCode";
 import styles from "../styles/main.sass";
@@ -23,8 +22,8 @@ import styles from "../styles/main.sass";
  * @param {string} code is input code
  * @returns {MainState} redux state
  **/
-function mapStateToProps({ code }) {
-    return { code };
+function mapStateToProps({ code, selection }) {
+    return { code, selection };
 }
 
 /**
@@ -42,7 +41,7 @@ function mapDispatchToProps(dispatch) {
  * @param {Object} actions react parameters
  * @returns {React$Element<*>} react components
  **/
-function MainPanel({ code, actions }) {
+function MainPanel({ code, selection, actions }) {
     let editorRef = null;
 
     /**
@@ -68,6 +67,7 @@ function MainPanel({ code, actions }) {
                         id={"code"}
                         inputRef={editor => (editorRef = editor)}
                         value={code}
+                        onSelection={actions.updateSelection}
                         onUpdateValue={actions.updateCode}
                     />
                 </ReactMg.Column>
@@ -75,24 +75,10 @@ function MainPanel({ code, actions }) {
                     className={styles.previewScreen}
                     onClick={focusEditor}
                 >
-                    <Preview value={code} />
+                    <Preview value={code} selection={selection} />
                 </ReactMg.Column>
             </ReactMg.Row>
         </ReactMg.Container>
-    );
-}
-
-/**
- * @param {NavigatorProps} props is react parameters
- * @returns {React$Element<*>} react components
- **/
-function Navigator(props) {
-    const { children } = props;
-
-    return (
-        <nav className={[styles.hidePrint, styles.navigation].join(" ")}>
-            {children}
-        </nav>
     );
 }
 
@@ -104,9 +90,6 @@ function renderApp(props) {
     return (
         <div className={styles.app}>
             <MainPanel {...props} />
-            <Navigator>
-                <Menu {...props} />
-            </Navigator>
         </div>
     );
 }
